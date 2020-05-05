@@ -13,7 +13,7 @@ public class CryptoTest {
     public void testThatCryptManagerInitializesWithDefaultMap() {
         Path path = Paths.get("src", "test", "resources", "map");
         String mapPath = path.toFile().getAbsolutePath();
-        Crypter crypter = Crypto.getInstance(mapPath);
+        Crypter crypter = Crypto.getCrypter(mapPath);
         Assertions.assertThat(crypter).isNotNull();
     }
 }

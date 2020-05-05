@@ -32,16 +32,20 @@ public final class Crypto {
         }
     }
 
-    public static synchronized Crypter getInstance() {
-        if (instance == null) {
-            init("");
+    public static Crypter getCrypter() {
+        synchronized (Crypto.class) {
+            if (instance == null) {
+                init("");
+            }
         }
         return instance;
     }
 
-    public static synchronized Crypter getInstance(String mapDbPath) {
-        if (instance == null) {
-            init(mapDbPath);
+    public static Crypter getCrypter(String mapDbPath) {
+        synchronized (Crypto.class) {
+            if (instance == null) {
+                init(mapDbPath);
+            }
         }
         return instance;
     }
